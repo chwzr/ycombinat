@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "pnpm build-changelog && next dev",
+    "dev": "npm build-changelog && next dev",
     "build-changelog": "./src/app/about/changelog/build-changelog.sh",
-    "build": "pnpm build-changelog && next build",
-    "start": "pnpm dev",
+    "build": "npm build-changelog && next build",
+    "start": "npm dev",
     "test": "jest",
     "test:watch": "jest --watch",
     "pretty": "prettier --write .",
