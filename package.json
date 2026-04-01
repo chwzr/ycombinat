@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm build-changelog && next build",
+    "build": "next build",
     "start": "npm dev",
     "test": "jest",
     "test:watch": "jest --watch",
