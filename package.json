@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npm build-changelog && next dev",
-    "build-changelog": "./src/app/about/changelog/build-changelog.sh",
+    "dev": "next dev",
     "build": "npm build-changelog && next build",
     "start": "npm dev",
     "test": "jest",
