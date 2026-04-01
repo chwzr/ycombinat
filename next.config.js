@@ -2,8 +2,12 @@
 module.exports = {
   reactStrictMode: false,
   trailingSlash: false,
-  distDir: "dist-export",
   output: "export",
+  assetPrefix: process.env.ASSET_PREFIX,
+  basePath: process.env.BASE_PATH,
+  experimental: {
+    webpackBuildWorker: true,
+  },
   webpack(config, context) {
     config.module.rules.push({
       test: /\.txt$/,
