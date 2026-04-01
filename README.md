@@ -18,3 +18,5 @@ A tiny Hacker News client, just drop the 'r' in `news.ycombinator.com`
 
 - When browsing Hacker News sometimes I want to search for a phrase or keyword on mobile.
 - Thought it would be an interesting little project
+
+...
