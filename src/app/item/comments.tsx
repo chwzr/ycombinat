@@ -75,7 +75,7 @@ function DiscussionHeader({
     </ExternalLink>
   );
   return (
-    <div className="flex flex-col text-gray-700">
+    <div className="flex flex-col text-neutral-700 dark:text-neutral-300">
       {submissionLink && (
         <div className="flex flex-col tiny:flex-row gap-2 items-center justify-between">
           {submissionLink}
@@ -102,7 +102,7 @@ function DiscussionHeader({
         )}
       </div>
       {story.text && <HTMLOutput className="text-xs pt-2" html={story.text} />}
-      <div className="border border-gray-300 p-2 rounded mt-1">
+      <div className="border border-neutral-300 dark:border-neutral-700 p-2 rounded mt-1">
         {filterOptions}
       </div>
     </div>
@@ -231,7 +231,7 @@ function CommentHeader({
     </Fragment>
   ));
   return (
-    <div className="text-gray-500 text-xs">
+    <div className="text-neutral-500 dark:text-neutral-500 text-xs">
       <div className="flex items-center gap-2 py-1">
         <LinkToAuthor className="flex-shrink-0" author={comment.author} />
         <LinkToDiscussion

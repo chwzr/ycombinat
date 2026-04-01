@@ -7,7 +7,7 @@ export function ResultsPageViewer(props: { data: StoryFrontPageJson }) {
   const page = props.data.page;
   const hitsPerPage = props.data.hitsPerPage;
   return (
-    <div className="flex flex-col gap-1 font-sans">
+    <div className="flex flex-col gap-1 font-sans dark:text-neutral-300">
       {data.hits.map((item, index) => (
         <FrontPageItem
           key={item.objectID}

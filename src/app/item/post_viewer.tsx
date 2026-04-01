@@ -103,6 +103,7 @@ type CommentCountResults = {
 
 type HasChildren = {
   id: number;
+  created_at_i: number;
   children: HasChildren[];
 };
 
@@ -213,6 +214,7 @@ const useDataSort = (
       idTotalMap,
       byResponseCount: sortOption === Option.byResponseCount,
       byThreadDepth: sortOption === Option.byThreadDepth,
+      byTimeCreated: sortOption === Option.byTimeCreated,
       onNextFound: (child, next) => idNextMap.set(child.id, next.id),
       onPrevFound: (child, prev) => idPrevMap.set(child.id, prev.id),
     });
@@ -225,6 +227,7 @@ const enum Option {
   unsorted = "Unsorted",
   byResponseCount = "Sort by response count",
   byThreadDepth = "Sort by thread length",
+  byTimeCreated = "Sort by time",
 }
 
 function FilterText(props: {
@@ -234,14 +237,14 @@ function FilterText(props: {
   return (
     <div className="flex">
       <input
-        className="border rounded-md px-1 w-full"
+        className="border rounded-md px-1 w-full dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
         placeholder="Filter comments..."
         onChange={(e) => props.onChange(e.target.value)}
         value={props.value}
       />
       <button
         onClick={() => props.onChange("")}
-        className="-ml-6 text-gray-400"
+        className="-ml-6 text-neutral-400 dark:text-neutral-500"
       >
         <XCircleIcon width={20} />
       </button>
@@ -256,6 +259,7 @@ function SortOptions(props: {
   const options: Option[] = [
     Option.byResponseCount,
     Option.byThreadDepth,
+    Option.byTimeCreated,
     Option.unsorted,
   ];
 

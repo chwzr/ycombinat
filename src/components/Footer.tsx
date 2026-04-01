@@ -10,7 +10,7 @@ const links = [
 
 export function Footer() {
   return (
-    <div className="text-gray-600 flex flex-col items-center py-8">
+    <div className="text-neutral-600 dark:text-neutral-400 dark:bg-neutral-900 flex flex-col items-center py-8">
       <div className="flex flex-wrap justify-center pb-5">
         {links.map(([path, title], index) => (
           <span key={path}>

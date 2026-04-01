@@ -98,7 +98,7 @@ function FilterText(props: {
   return (
     <div className="flex w-full">
       <input
-        className="border rounded-md px-2 py-1 w-full"
+        className="border rounded-md px-2 py-1 w-full dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
         placeholder="Search posts..."
         onChange={(e) => props.onChange(e.target.value)}
         onKeyDown={(e) => {
@@ -108,7 +108,7 @@ function FilterText(props: {
       />
       <button
         onClick={() => props.onChange("")}
-        className="-ml-6 text-gray-400"
+        className="-ml-6 text-neutral-400 dark:text-neutral-500"
       >
         <XCircleIcon width={20} />
       </button>
@@ -125,7 +125,7 @@ function DateSelect(props: {
     props.onChange(new Date(date));
   };
   return (
-    <label className="flex flex-col">
+    <label className="flex flex-col dark:text-neutral-300">
       <span className="text-xs">{props.label}</span>
       <input
         type="date"
@@ -144,7 +144,7 @@ function RangeSelect(props: {
 }) {
   const val = props.value > 0 ? props.value : "disabled";
   return (
-    <label className="flex flex-col">
+    <label className="flex flex-col dark:text-neutral-300">
       <span className="text-xs">
         {props.label} ({val})
       </span>
@@ -165,7 +165,7 @@ function SearchButton(props: { onClick: () => void }) {
     <button
       onClick={props.onClick}
       role="button"
-      className="bg-gray-200 rounded cursor-pointer px-2 py-1 gap-2 flex flex-row items-center"
+      className="bg-neutral-200 dark:bg-neutral-700 dark:text-neutral-100 rounded cursor-pointer px-2 py-1 gap-2 flex flex-row items-center"
     >
       Search <MagnifyingGlassCircleIcon width={20} />
     </button>

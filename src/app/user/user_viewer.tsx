@@ -52,7 +52,7 @@ function UserViewer(props: { userId: string | null }) {
 
 function Row(props: { name: string; value: React.ReactNode }) {
   return (
-    <tr className="align-top text-gray-500">
+    <tr className="align-top text-neutral-500 dark:text-neutral-400">
       <td className="pr-3">{props.name}:</td>
       <td>{props.value}</td>
     </tr>

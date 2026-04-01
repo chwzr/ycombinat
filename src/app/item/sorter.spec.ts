@@ -5,10 +5,12 @@ type SimpleTreeNode = [number, SimpleTreeNode[]] | [number];
 
 type ChildrenObjRoot = {
   id: number;
+  created_at_i: number;
   children: ChildrenObjNode[];
 };
 type ChildrenObjNode = {
   id: number;
+  created_at_i: number;
   value: number;
   children: ChildrenObjNode[];
 };
@@ -24,6 +26,7 @@ describe("sortStory", () => {
       {
         byResponseCount: true,
         byThreadDepth: false,
+        byTimeCreated: false,
         idTotalMap: new Map<number, number>([
           [2, 1],
           [10, 2],
@@ -49,6 +52,7 @@ describe("sortStory", () => {
       {
         byResponseCount: false,
         byThreadDepth: true,
+        byTimeCreated: false,
         idTotalMap: new Map<number, number>([
           [2, 1],
           [10, 2],
@@ -79,6 +83,7 @@ describe("sortStory", () => {
       {
         byResponseCount: false,
         byThreadDepth: true,
+        byTimeCreated: false,
         idTotalMap: new Map<number, number>([
           [2, 1],
           [10, 2],
@@ -102,7 +107,7 @@ describe("sortStory", () => {
 });
 
 function convertSimpleTree(simpleRoot: SimpleTreeRoot): ChildrenObjRoot {
-  const root: ChildrenObjRoot = { id: 999999, children: [] };
+  const root: ChildrenObjRoot = { id: 999999, created_at_i: 0, children: [] };
 
   function buildTree(
     node: ChildrenObjRoot,
@@ -110,7 +115,7 @@ function convertSimpleTree(simpleRoot: SimpleTreeRoot): ChildrenObjRoot {
   ): ChildrenObjNode[] {
     for (let i = 0; i < data.length; i++) {
       const [value, children] = data[i];
-      const newNode: ChildrenObjNode = { value, id: value, children: [] };
+      const newNode: ChildrenObjNode = { value, id: value, created_at_i: 0, children: [] };
       newNode.children = buildTree(newNode, children || []);
       node.children.push(newNode);
     }

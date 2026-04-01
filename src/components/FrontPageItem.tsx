@@ -28,7 +28,7 @@ export function FrontPageItem({
       <span>{index}.</span>
       <div className="flex flex-col">
         {itemLink}
-        <div className="flex items-center flex-wrap gap-1 text-gray-500 text-xxs sm:text-xs">
+        <div className="flex items-center flex-wrap gap-1 text-neutral-500 dark:text-neutral-400 text-xxs sm:text-xs">
           <p className="flex-shrink-0">{item.points} points by</p>
           <LinkToAuthor author={item.author} />
           <ILinkToDiscussion

@@ -60,7 +60,7 @@ function PageViewer(props: FrontPageQuery) {
     />
   );
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full dark:text-neutral-300">
       <div className="pb-3">{dateButtons}</div>
       <SortOptions value={sortValue} onChange={setSortValue} />
       <FrontPageViewer data={sorted} />
@@ -117,7 +117,7 @@ function PerPageOptions(props: {
   return (
     <select
       value={props.value}
-      className="border border-gray-300 p-1"
+      className="border border-neutral-300 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 p-1"
       onChange={(e) => props.onChange(e.target.value)}
     >
       <option>50</option>
@@ -211,7 +211,7 @@ function SortOptions(props: {
   ];
 
   return (
-    <div className="flex flex-wrap items-center gap-2 border border-gray-300 p-2 rounded mb-2">
+    <div className="flex flex-wrap items-center gap-2 border border-neutral-300 dark:border-neutral-700 p-2 rounded mb-2">
       {options.map((option) => (
         <RadioButton
           key={option}

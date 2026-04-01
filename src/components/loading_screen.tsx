@@ -13,8 +13,8 @@ export function LoadingScreen() {
 
   return (
     <div className="flex flex-col items-center py-40 w-full">
-      <p className="text-3xl font-mono text-gray-600 pb-10">Loading...</p>
-      <p className="text-4xl font-mono whitespace-pre text-gray-400">
+      <p className="text-3xl font-mono text-neutral-600 dark:text-neutral-400 pb-10">Loading...</p>
+      <p className="text-4xl font-mono whitespace-pre text-neutral-400 dark:text-neutral-500">
         {face[faceIndex]}
       </p>
     </div>

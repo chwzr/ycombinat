@@ -1,5 +1,6 @@
 type HasChildren = {
   id: number;
+  created_at_i: number;
   children: HasChildren[];
 };
 
@@ -11,6 +12,7 @@ type SortChildrenOpts<T> = {
   idTotalMap: Map<number, number>;
   byThreadDepth: boolean;
   byResponseCount: boolean;
+  byTimeCreated: boolean;
   onNextFound?: (child: T, next: T) => void;
   onPrevFound?: (child: T, prev: T) => void;
 };
@@ -57,6 +59,9 @@ function getSortFunction<T>(opts: SortChildrenOpts<T>): CommentSortFunction {
   if (opts.byResponseCount) {
     return createSortByResponseCount(opts);
   }
+  if (opts.byTimeCreated) {
+    return sortByTimeCreatedFn;
+  }
   return createNoOp(opts);
 }
 
@@ -96,6 +101,13 @@ const createSortByResponseCount = <T>(opts: SortChildrenOpts<T>) => {
     );
   };
   return sortByResponseCount;
+};
+
+const sortByTimeCreatedFn: CommentSortFunction = (
+  comment1: HasChildren,
+  comment2: HasChildren
+): number => {
+  return comment2.created_at_i - comment1.created_at_i;
 };
 
 const createNoOp = <T>(opts: SortChildrenOpts<T>): CommentSortFunction => {

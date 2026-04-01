@@ -3,6 +3,8 @@ import { ArrowLongLeftIcon } from "@heroicons/react/24/solid";
 import { Fragment } from "react";
 import { HighlightedLink } from "./HighlightedLink";
 import { InternalLink } from "./InternalLink";
+import { ThemeToggle } from "./ThemeToggle";
+import { WidthToggle } from "./WidthToggle";
 
 const links = [
   ["/", "front"],
@@ -13,7 +15,7 @@ const links = [
 
 export function Header() {
   return (
-    <div className="bg-orange-500 text-gray-900 flex flex-col px-2 py-1 w-full">
+    <div className="bg-orange-500 dark:bg-orange-600 text-neutral-900 dark:text-neutral-100 flex flex-col px-2 py-1 w-full">
       <InternalLink href="/">
         <span className="flex items-end gap-2">
           YCombinato <Ricon /> <JustDropTheR />
@@ -28,8 +30,10 @@ export function Header() {
             </Fragment>
           ))}
         </div>
-        <div className="text-xs text-black">
+        <div className="text-xs text-black dark:text-white flex items-center gap-2">
           <MenuItem href="/about">About</MenuItem>
+          <WidthToggle />
+          <ThemeToggle />
         </div>
       </div>
     </div>
@@ -38,7 +42,7 @@ export function Header() {
 
 function JustDropTheR() {
   return (
-    <span className="text-xxs flex text-gray-100 italic">
+    <span className="text-xxs flex text-neutral-100 italic">
       <ArrowLongLeftIcon width={13} />
       {"Just drop the 'r'"}
     </span>
@@ -50,7 +54,7 @@ function Ricon() {
     <div className="-ml-1 inline-block" style={{ marginBottom: -4 }}>
       <span
         style={{ transform: "rotate(70deg)" }}
-        className="text-gray-500 inline-block"
+        className="text-neutral-500 dark:text-neutral-400 inline-block"
       >
         r
       </span>

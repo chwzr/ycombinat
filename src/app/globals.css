@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Berkeley Mono";
+  src: url("/BerkeleyMonoVariable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+html.dark {
+  color-scheme: dark;
+  background-color: #171717; /* neutral-900 */
+}
+
 code {
   white-space: pre-line;
 }
@@ -13,6 +25,31 @@ code {
 
 .bg-opacity-3 {
   background-color: rgb(0 0 0 / 0.03);
+}
+
+:is(.dark .bg-opacity-3) {
+  background-color: oklch(92.2% 0 0 / 0.01);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  border: 1px solid oklch(26.9% 0 0);
+}
+
+:is(.dark .bg-opacity-3):hover:not(:has(.bg-opacity-3:hover)) {
+  background-color: oklch(20.5% 0 0);
+}
+
+@layer base {
+  html {
+    @apply text-neutral-900 dark:text-neutral-100;
+  }
+
+  .dark input[type="date"],
+  .dark input[type="range"] {
+    color-scheme: dark;
+  }
+
+  .comment-text {
+    @apply dark:text-neutral-400;
+  }
 }
 
 .comment-text {
